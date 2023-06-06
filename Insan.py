@@ -1,5 +1,7 @@
 #Insan.py
 class Insan:
+ #değişkenleri tanımladım
+
     def __init__(self, tc_no, ad, soyad, yas, cinsiyet, uyruk):
         self.tc_no = tc_no
         self.ad = ad
@@ -7,6 +9,8 @@ class Insan:
         self.yas = yas
         self.cinsiyet = cinsiyet
         self.uyruk = uyruk
+
+ #değişkenleri çağıran fonksiyonları tanımladım
 
     def get_tc_no(self):
         return self.tc_no
@@ -30,7 +34,7 @@ class Insan:
         return self.yas
 
     def set_yas(self, yas):
-        self.__yas = yas
+        self.yas = yas
 
     def get_cinsiyet(self):
         return self.cinsiyet
@@ -44,5 +48,7 @@ class Insan:
     def set_uyruk(self, uyruk):
         self.uyruk = uyruk
 
+# bilgileri ekrana yazdırdım
+
     def __str__(self):
-        return f"TC No: {self.__tc_no}\nAd: {self.__ad}\nSoyad: {self.__soyad}\nYaş: {self.__yas}\nCinsiyet: {self.__cinsiyet}\nUyruk: {self.__uyruk}"
+        return f"TC No: {self.tc_no}\nAd: {self.ad}\nSoyad: {self.soyad}\nYaş: {self.yas}\nCinsiyet: {self.cinsiyet}\nUyruk: {self.uyruk}"
