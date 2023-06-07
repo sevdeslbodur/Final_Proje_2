@@ -16,6 +16,8 @@ class BeyazYaka(Calisan):
     def set_tesvik_primi(self, tesvik_primi):
         self.tesvik_primi = tesvik_primi
 
+#zam hakkını hesaplayan metod
+
     def zam_hakki(self):
         try:
             maaş = self.get_maas()
