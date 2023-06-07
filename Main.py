@@ -11,6 +11,8 @@ try:
     kisi2 = Insan("26473890241", "Ege", "Bodur", "30", "erkek", "Türk")
     print(kisi1)
     print(kisi2)
+    
+    # Issiz sınıf için 3 nesne oluşturuldu
 
     Issiz1 = Issiz("16483947562", "Dilay", "Yücel", "38", "kadın", "Türk", "beyaz yaka")
     Issiz1.tecrubeler = {
@@ -66,8 +68,52 @@ except Exception as e:
     print("Bir hata oluştu:", e)
     
 
+
+    
+
 # Boş bir DataFrame oluşturuldu
 
 df = pd.DataFrame(columns=['nesne', 'tc_no', 'ad', 'soyad', 'yas', 'cinsiyet', 'uyruk', 'sektor', 'tecrube', 'maas', 'yipranma_payi', 'tesvik_primi', 'yeni_maas'])
 df.fillna(0, inplace=True)
+
+
+def grup_ortalamalari_hesapla(df):
+    
+
+    # Çalışanlar gruplandırıldı
+    calisan_gruplar = df[df['nesne'] == 'Calisan'].groupby('sektor')
+
+    print("Calisanlar için Grup Ortalamalari:")
+    for sektor, grup in calisan_gruplar:
+        ortalama_tecrube = grup['tecrube'].mean()
+        ortalama_yeni_maas = grup['yeni_maas'].mean()
+        print(f"{sektor} sektörü için Ortalama Tecrübe: {ortalama_tecrube:.2f}, Ortalama Yeni Maaş: {ortalama_yeni_maas:.2f}")
+
+    print()
+
+    # Mavi Yaka için gruplandırma
+    
+    maviyaka_gruplar = df[df['nesne'] == 'MaviYaka'].groupby('uyruk')
+
+    print("Mavi Yaka için Grup Ortalamalari:")
+    for uyruk, grup in maviyaka_gruplar:
+        ortalama_tecrube = grup['tecrube'].mean()
+        ortalama_yeni_maas = grup['yeni_maas'].mean()
+        print(f"{uyruk} uyruk için Ortalama Tecrübe: {ortalama_tecrube:.2f}, Ortalama Yeni Maaş: {ortalama_yeni_maas:.2f}")
+
+    print()
+
+    # Beyaz Yaka için gruplandırma
+    
+    beyazyaka_gruplar = df[df['nesne'] == 'Issiz'].groupby('cinsiyet')
+
+    print("Beyaz Yaka için Grup Ortalamalari:")
+    for cinsiyet, grup in beyazyaka_gruplar:
+        ortalama_tecrube = grup['tecrube'].mean()
+        ortalama_yeni_maas = grup['yeni_maas'].mean()
+        print(f"{cinsiyet} cinsiyet için Ortalama Tecrübe: {ortalama_tecrube:.2f}, Ortalama Yeni Maaş: {ortalama_yeni_maas:.2f}")
+
+    print()
+    
+grup_ortalamalari_hesapla(df)
 
