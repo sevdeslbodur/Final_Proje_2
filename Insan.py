@@ -10,8 +10,7 @@ class Insan:
         self.cinsiyet = cinsiyet
         self.uyruk = uyruk
 
- #değişkenleri çağıran fonksiyonları tanımladım
-
+ #değişkenleri çağıran fonksiyonlar tanımlandı
     def get_tc_no(self):
         return self.tc_no
 
